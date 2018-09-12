@@ -1,0 +1,125 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+/*   position: relative;
+  margin: 0;
+  min-height: 100%;
+  font-family: Poppins;
+  color: #424B55;
+  background: #A3BAC3;
+  padding-bottom: 11rem; */
+}
+#main-container {
+  background-color: #ffffff00;
+  width: 90%;
+  max-width: 400px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 3px solid #ffffff00;
+  max-height: 800px;
+}
+#city {
+  color : white;
+  font-size: 35px;
+}
+#state {
+  color : white;
+  font-size: 20px;
+}
+#current-weather {
+  color : white;
+  max-width: 300px;
+}
+.valign {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+#temp {
+  color : white;
+  font-size: 47px;
+}
+#fbutton {
+  color : white;
+  font-size: 25px;
+}
+#cbutton {
+
+  font-size: 25px;
+}
+.button:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+a {
+  color: #000000;
+}
+#weather-description {
+  font-size: 15px;
+  font-weight: bold;
+}
+#feels-like {
+  font-size: 14px;
+  font-weight: bold;
+  disply: fixed;
+}
+hr.style1 {
+  border-top: 3px solid white;
+  border-radius: 10px;
+	text-align: top;
+  max-width: 300px;
+}
+#forecast {
+  color : white;
+  max-width: 350px;
+  max-height: 100px;
+}
+#day2-raindrop {
+  color : white;
+  display: inline-block;
+}
+#day2-precip {
+  color : white;
+  display: inline-block;
+}
+#day3-raindrop {
+  color : white;
+  display: inline-block;
+}
+#day3-precip {
+  color : white;
+  display: inline-block;
+}
+#day4-raindrop {
+  color : white;
+  display: inline-block;
+}
+#day4-precip {
+  color : white;
+  display: inline-block;
+}
+
+
+/* .alignNav {
+  text-align: right;
+  position: relative;
+  padding-top: 6px;
+  height: 105px;
+}
+
+.icons {
+display: inline-block;
+height: 60px;
+position: absolute;
+right: 0;
+bottom: 1px;
+} */
+/*"natural" footer - stays at the bottom of the page but if page is longer than viewport, will need to scroll*/

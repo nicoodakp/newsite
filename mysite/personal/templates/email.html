@@ -1,0 +1,66 @@
+{% extends "personal/header.html" %}
+{% load staticfiles %}
+{% block additional_styles %}
+<header class="masthead" style="background-image: url( 'static/personal/img/contact-bg.jpg')">
+{% endblock %}
+
+{% block title %}<div class="site-heading" >
+<h1 align="left">Contact Me</h1>
+<span class="subheading" align="left" style = "color: #ffffff00">hello world</span>{% endblock %}
+
+    <!-- Main Content -->
+    {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Fill out the form below to send me a message and I will get back to you as soon as possible. Thanks for visiting my blog! </p>
+
+          {% load widget_tweaks %}
+          <form method="post" novalidate>
+              {% csrf_token %}
+
+              {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field }}
+              {% endfor %}
+
+              {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                  {% for error in form.non_field_errors %}
+                    {{ error }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              {% for field in form.visible_fields %}
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                  {{ field.label_tag }}
+
+                  {% if form.is_bound %}
+                    {% if field.errors %}
+                      {% render_field field class="form-control is-invalid" %}
+                      {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                          {{ error }}
+                        </div>
+                      {% endfor %}
+                    {% else %}
+                      {% render_field field class="form-control is-valid" %}
+                    {% endif %}
+                  {% else %}
+                    {% render_field field class="form-control" %}
+                  {% endif %}
+
+                  {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+{% endblock %}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load staticfiles %}
+    <link href="static/personal/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style type="text/css">
+    overflow: hidden;/* to contain the floated elements */
+    </style>
+
+
+    <title>Kai Peng's Blog</title>
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/personal/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+
+
+
+
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link href="static/personal/css/clean-blog.min.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css">
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+
+    <link href="static/personal/css/Kai-Peng.min.css" rel="stylesheet">
+    <link href="static/personal/css/news.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+    </head>
+
+  <body>
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+       <div class="container">
+
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+           Menu
+           <i class="fa fa-bars"></i>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                 <a class="nav-link" href='/'>Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="about">About</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="posts">Blog</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="contact">Contact</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="resume">Resume</a>
+             </li>
+
+           </ul>
+         </div>
+       </div>
+     </nav>
+
+    <!-- Page Header -->
+<!-- <header class="masthead" style="background-image: url( 'static/personal/img/home-bg.jpg')"> -->
+    {% block additional_styles %}
+    <!-- <div id="large-header" class="large-header">-->
+
+<header class="masthead" style="background-image: url( 'static/personal/img/home-bg.jpg')">
+
+    {% endblock %}
+
+<div class="overlay"></div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4">     <!--   make the weather app here --><!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <div id="main-container" class="container" >
+                  <p id="city" class="text-center" style="margin: 10px 0px 10px 0px;"></p>
+                  <p id="state" class="text-center" style="margin: 10px 0px 10px 0px;"></p>
+                <div id="current-weather" class="container" style="position: relative; left: 60px;">
+                  <!-- <div class="col"> -->
+                  <div class="col-xs-4 valign" >
+                      <!-- <br> -->
+                      <canvas id="weather-icon" width="75" height="75" style="position: relative; top: -5px;">.</canvas>
+
+                  </div>
+                    <!--
+                    -->
+                    <div class="col-xs-4 valign">
+                      <h1 id="temp"></h1>
+                    </div>
+
+
+                  <div class="col text-top" style="margin: 1px 10px 23px 10px;">
+                    <div class="row-xs-4">
+                      <h1 id="weather-description" align="center" style="position: relative; left: -75px;"></h1>
+                    </div>
+                    <div class="row-xs-4">
+                      <h1 id="feels-like"></h1>
+                    </div>
+                  </div>
+                </div>
+                <hr class="style1">
+                <div id="forecast" class="container" align="center">
+                  <div class="row" style="position: relative; left: 55px;">
+                    <div class="row-xs-3 text-top">
+                      <p id="day2" style="margin: 10px 0px 10px 0px;"></p>
+                      <canvas id="weather-icon-day2" width="45" height="45"></canvas>
+                      <p id="day2-high-low" style="margin: 1px 10px 1px 10px;"></p>
+                      <i id="day2-raindrop" class="wi wi-raindrop" style="position: relative; left: -3px;"></i>
+                      <p id="day2-precip" style="margin: 1px 10px 1px 1px; position: relative; left: -6px;"></p>
+                    </div>
+                    <div class="col-xs-3 text-center">
+                      <p id="day3" style="margin: 10px 0px 10px 0px;"></p>
+                      <canvas id="weather-icon-day3" width="45" height="45"></canvas>
+                      <p id="day3-high-low" style="margin: 1px 10px 1px 5px;"></p>
+                      <i id="day3-raindrop" class="wi wi-raindrop" style="position: relative; left: -3px;"></i>
+                      <p id="day3-precip" style="margin: 1px 10px 1px 1px; position: relative; left: -6px;" ></p>
+                    </div>
+                    <div class="col-xs-3 text-center">
+                      <p id="day4" style="margin: 10px 0px 10px 0px;"></p>
+                      <canvas id="weather-icon-day4" width="45" height="45" style="position: relative; top: 0px;"></canvas>
+                      <p id="day4-high-low" style="margin: 1px 10px 1px 5px;"></p>
+                      <i id="day4-raindrop" class="wi wi-raindrop" ></i>
+                      <p id="day4-precip" style="margin: 1px 15px 1px 1px; position: relative; left: -3px;"></p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+       </div>          <!-- weather app -->             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <div class= "col-lg-8">
+
+              {% block title %}
+
+              <div class="site-heading mx-auto">
+                  <h1 align="left" style="position: relative; left: 40px;"> Kai Peng</h1>
+              <span class="subheading" align="left" style="position: absolute; left: 60px;">Student, tutor and programmer.</span>
+              </div>
+
+               {% endblock %}
+             </div>
+          </div>
+        </div>
+      </div>
+     </div>
+
+    </header>
+
+    <!-- Main Content -->
+{% block content %}
+
+
+
+
+    <!-- <div class = "row" style="position: relative; top: -30px;">
+      <div class = "col-1">
+      </div>
+      <div class = "col-1">
+                  <i class="fas fa-exclamation-triangle" style="position: relative; top: 25px;"></i>
+                  <p style="position: relative; top: -35px; relative; left: 30px;">Alert</p>
+      </div>
+      <div class = "col">
+        <p style="position: relative; top: -6px;"> roll text </p>
+    </div>
+</div> -->
+
+
+      <div class="col-lg-12 mx-auto">
+        <div class="container">
+
+  		<div id="content"></div>
+      <!-- <p id="demo"></p> -->
+  	</div>
+
+
+
+
+
+    </div>
+</div>
+
+<br><br>
+{% endblock %}
+    <footer>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/nicooda">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/Kai-P">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; kai-peng.net  2018</p>
+          </div>
+        </div>
+        <div class="elevator-wrapper" align="right"></div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/personal/vendor/jquery/jquery.min.js"></script>
+    <script src="static/personal/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+
+    <script src="static/personal/js/clean-blog.min.js"></script>
+    <!-- <script src="static/personal/js/alert-scroll.min.js"></script> -->
+    <script src="static/personal/js/Kai-Peng.min.js"></script>
+
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+
+    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script> -->
+    <!-- <script>  debugger;
+      document.getElementbyId("demo").innerHTML = state;</script> -->
+
+
+  </body>
+
+
+</html>

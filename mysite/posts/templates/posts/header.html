@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load staticfiles %}
+    <link href="static/personal/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <title><h1>Kai Peng's Blog</title></h1>
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/personal/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="static/personal/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="static/personal/css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+       <div class="container">
+
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+           Menu
+           <i class="fa fa-bars"></i>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                 <a href='/'>Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="about">About</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="posts">Blog</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="contact">Contact</a>
+
+
+             </li>
+           </ul>
+         </div>
+       </div>
+     </nav>
+
+    <!-- Page Header -->
+    {% block additional_styles %}
+
+    <header class="masthead" style="background-image: url( 'static/personal/img/home-bg.jpg')">{% endblock %}
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              {% block title %}<div class="site-heading">
+                  <h1> Kai Peng</h1>
+              <span class="subheading">Student, tutor and programmer.</span>
+            </div>{% endblock %}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+{% block content %}
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <a class="weatherwidget-io" href="https://forecast7.com/en/41d76n72d69/hartford/?unit=us" data-label_1="HARTFORD" data-label_2="" data-icons="Climacons Animated" data-days="3" data-theme="pure" >HARTFORD </a>
+                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                  </script>
+
+                  <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="NEW YORK" data-label_2="" data-icons="Climacons Animated" data-days="3" data-theme="pure" >NEW YORK WEATHER</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                      </script>
+
+                  <a class="weatherwidget-io" href="https://forecast7.com/en/42d36n71d06/boston/?unit=us" data-label_1="BOSTON" data-label_2="" data-icons="Climacons Animated" data-days="3" data-theme="pure" >BOSTON WEATHER</a>
+                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+              </script>
+
+          </div>
+        </div>
+    </div>
+
+<hr><hr><br><br>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-13 mx-auto">
+        <div class="feedgrabbr_widget" id="fgid_66d23440d39b0b57e97761ad1"></div>
+        <script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array(); fg_widgets.push("fgid_66d23440d39b0b57e97761ad1");</script>
+        <script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
+    </div>
+</div>
+
+<hr><hr><br><br>
+{% endblock %}
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/nicooda">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/Kai-P">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; kai-peng.net  2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/personal/vendor/jquery/jquery.min.js"></script>
+    <script src="static/personal/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="static/personal/js/clean-blog.min.js"></script>
+  </body>
+
+
+</html>

@@ -1,0 +1,21 @@
+{% extends "posts/post-base.html" %}
+{% load staticfiles %}
+
+          {% block title %}<div class="site-heading">
+          <h2> <p class="text-white">Articles for tagged: {{tag}}</p></h2>
+          <span class="subheading"></span>{% endblock %}
+
+
+
+
+
+
+           {% block content %}
+
+           {% for post in posts %}
+           <hr>
+           <h3 class="text-center"><a href="/posts/{{post.id}}">{{ post.title }}</a></h3>
+           <h6 class="text-center">- K.P on {{ post.updated|date:"M-d-y" }}</h6>
+           {% endfor %}
+
+           {% endblock %}

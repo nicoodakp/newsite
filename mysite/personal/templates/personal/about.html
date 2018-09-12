@@ -1,0 +1,29 @@
+{% extends "personal/header.html" %}
+{% load staticfiles %}
+
+{% block additional_styles %}
+<header class="masthead" style="background-image: url( 'static/personal/img/about-bg.jpg')">
+{% endblock %}
+
+{% block title %}<div class="site-heading" >
+<h1 align="left">About Me</h1>
+<span class="subheading" align="left">Student, tutor and programmer.</span>{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Hi! I’m Kai Peng. A senior undergraduate student from the University of Connecticut. And major in Statistic. I am from China. And currently lives in Vernon, Connecticut.</p>
+        <p>I want to start a blog mostly because I want to share what I have learned and done in the past few years – from elementary statistic, business inquiry using regression, functional and time series analysis, to module benchmark, artificial neural net and so on. I am typically interesting in the field of data manipulation, and the methodology of survey research. Because the subject requires an interdisciplinary study for me to closely work with peers from different perspective and experience in a way to ensuring any data integrity and accuracy. After all, if samples were misrepresented at the first hand, nothing could be remedied.</p>
+        <p>During the making of this blog, I found out web develop was intensively interesting. This website was built using Django 2.0. Compare to other programming language instruction such as R-studio, SQL and Python, I think the Django documentation was by far the easiest to read and understood. I try to put the whole project on GitHub along with a project/deployment tutorial here as soon as I can.</p>
+        <p>If you have any suggestions for any improvement please fill out the form or email me at kai.peng@uconn.edu. Thank you very much for your time.</p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+{% endblock %}

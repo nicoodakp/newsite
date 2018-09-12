@@ -1,0 +1,97 @@
+{% extends "posts/post-base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load comments %}
+{% load comments_xtd %}
+
+
+{% block title %}<div class="site-heading">
+    <h3><p class="text-white">{{ post.title }}</p></h3>
+<span class="subheading">{{ post.updated }}</span>{% endblock %}
+
+			{% block content %}
+				<div class = "container">
+						<div class="row">
+								<div class="col-lg-10 col-lg-13 mx-auto">
+					<p>{{ post.body|safe|linebreaks}}</p>
+				        {% for tag in post.tags.all %}
+          				<a href="/posts/tag/{{tag}}"><span class="badge badge-pill badge-info">{{tag}}</span></a>
+					{% endfor %}
+					<br><br><br><br>
+                  <button type="button" class="btn btn-primary float-sm-right" onclick="goBack()">Go Back</button>
+                  <script>
+                      function goBack() {
+                          window.history.back();
+                      }
+                      </script>
+                  </div>
+            </div>
+      </div>
+
+
+<div class = "container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 mx-auto">
+            <div id="comments">
+
+      {% get_comment_count for object as comment_count %}
+        {% if comment_count %}
+        <p class="text-center">
+        {% blocktrans count comment_count=comment_count %}
+            There is {{ comment_count }} comment below.
+            {% plural %}
+            There are {{ comment_count }} comments below.
+          {% endblocktrans %}</p>
+        {% endif %}
+        <hr>
+        <p class="text-center">Leave a comment</p>
+        {% if object.allow_comments %}
+          <div class="comment">
+            <div class="well">
+              {% render_comment_form for object %}
+            </div>
+          </div>
+          {% else %}
+          <!-- <p class="text-center">comments are disabled for this article</p> -->
+          {% endif %}
+
+          {% if comment_count %}
+          <hr/>
+          <link href="{% static 'django_comments_xtd/css/bootstrap.min.css' %}" rel="stylesheet">
+          <ul class="media-list">
+              {% render_xtdcomment_tree for object %}
+          </ul>
+           {% block extra-js %}
+          <script>
+          window.comments_props = {% get_commentbox_props for object %};
+          window.comments_props_override = {
+            // allow_comments: {%if object.allow_comments%}true{%else%}false{%endif%},
+            allow_feedback: false,
+            show_feedback: false,
+            allow_flagging: false,
+            polling_interval: 5000  // In milliseconds.
+          };
+        </script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        <script type="text/javascript"
+                src="{% url 'javascript-catalog' %}"></script>
+        <script src="{% static 'django_comments_xtd/js/vendor-2.1.0.js' %}"></script>
+        <script src="{% static 'django_comments_xtd/js/plugin-2.1.0.js' %}"></script>
+        <script>
+         $(function () {
+             $('[data-toggle="tooltip"]').tooltip({html: true})
+         })</script>
+{% endblock %}
+  {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#"><p class="text-center"> Back to top</p></a>
+{% endblock %}
